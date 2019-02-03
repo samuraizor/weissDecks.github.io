@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <script  src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+        <link rel="stylesheet" href="index.css">
+        <script  src="index.js"></script>
+    </head>
+    <body>
+        <div class="ui tabular menu">
+            <div class="item" id='tabdeck' data-tab="tab-deck">Deck</div>
+            <div class="item" id='tabhash' data-tab="tab-hash">Deck String</div>
+        </div>
+        <div class="ui tab" data-tab="tab-deck">
+            <h2 id="qtd">Deck</h2>
+                <div  id="cards" class="ui five column grid">      
+                </div>
+        </div>   
+        <div class="ui tab" data-tab="tab-hash">
+            <div class="ui form">
+                <div class="field">
+                    <label>Deck String</label>
+                    <textarea id="string">BD_W54_TE02=4,BD_W54_E051=4,BD_W54_E079=4,BD_W54_E004=4,BD_W54_E015=4,BD_W47_E044=2,BD_W54_TE10=4,BD_W54_TE12=2,BD_W54_E059=2,BD_W54_E065=2,BD_W47_E080=4,BD_W47_E117=4,BD_W47_E084=4,BD_W47_E115=4,BD_W54_E094=4,BD_W47_E083=4,BD_W47_E082=4</textarea>
+                </div>
+            </div>
+            <div class="actions">
+                    <button id="btnCarrega" onclick="carregaDeck()">Carregar Deck</button> 
+            </div>
+         </div>
+    </body>
+</html>
