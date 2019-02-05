@@ -1,13 +1,22 @@
 var cardlist = "";
 var cardArr = [];
 var deckCont = 0
+if (getCookie("deckstring")!=""){
+    $("#string").val(getCookie("deckstring"));
+}
+
+
 function carregaDeck(){
+    $("#cards").html("");
     deckCont = 0
-    cardlist = String($("#string").html())
+    cardlist = String($("#string").val())
+    console.log(cardlist)
+    setCookie("deckstring",cardlist,360)
     cardArr = cardlist.split(",");
     cardArr.forEach(escreveCards)
     $("#qtd").html("Cards total: "+deckCont)
     $('#tabdeck').click();
+    
 }
 function escreveCards(item, index) {
     
@@ -16,7 +25,7 @@ function escreveCards(item, index) {
     deckCont = deckCont + parseInt(qtd)
     var splitLocal=card[0].split("_");
     var local = ""
-    //console.log(splitLocal)
+   // console.log(splitLocal)
     switch(splitLocal[1]) {
         case "W54":
         local = "EN_BDG_W54/";
@@ -34,6 +43,32 @@ function escreveCards(item, index) {
 $( document ).ready(function() {
     $('.tabular.menu .item').tab();
     $('#tabhash').click();
-    $('#btnCarrega').click();
+   
     
 });
+
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    console.log(cname + "=" + cvalue + ";" + expires + ";path=/")
+  }
+  
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  
+ 
