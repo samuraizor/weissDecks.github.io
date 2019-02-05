@@ -1,9 +1,7 @@
 var cardlist = "";
 var cardArr = [];
 var deckCont = 0
-if (getCookie("deckstring")!=""){
-    $("#string").html(getCookie("deckstring"));
-}
+
 
 
 function carregaDeck(){
@@ -43,7 +41,9 @@ function escreveCards(item, index) {
 $( document ).ready(function() {
     $('.tabular.menu .item').tab();
     $('#tabhash').click();
-   
+    if (getCookie("deckstring")!=""){
+        $("#string").html(getCookie("deckstring"));
+    }
     
 });
 
