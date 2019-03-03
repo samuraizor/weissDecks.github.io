@@ -2,6 +2,20 @@ var cardlist = "";
 var cardArr = [];
 var deckCont = 0
 
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
 
 
 function carregaDeck(){
@@ -44,9 +58,10 @@ function escreveCards(item, index) {
 $( document ).ready(function() {
     $('.tabular.menu .item').tab();
     $('#tabhash').click();
-    if (getCookie("deckstring")!=""){
+	$("textarea#string").val(getUrlParameter("string"));
+    /*if (getCookie("deckstring")!=""){
         $("#string").html(getCookie("deckstring"));
-    }
+    }*/	
     
 });
 
@@ -74,4 +89,5 @@ function setCookie(cname, cvalue, exdays) {
     return "";
   }
   
+ 
  
