@@ -32,7 +32,7 @@ function carregaDeck(){
 }
 function escreveCards(item, index) {
     
-    var card = cardArr[index].split("=");
+    var card = cardArr[index].split(":");
     var qtd = card[1];
     deckCont = deckCont + parseInt(qtd)
     var splitLocal=card[0].split("_");
