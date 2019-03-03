@@ -23,8 +23,11 @@ function escreveCards(item, index) {
     deckCont = deckCont + parseInt(qtd)
     var splitLocal=card[0].split("_");
     var local = ""
-   // console.log(splitLocal)
+    console.log(splitLocal)
     switch(splitLocal[1]) {
+		case "WX01":
+			local="/EN_CCS_WX01/"
+			break;
         case "W54":
         local = "EN_BDG_W54/";
           break;
